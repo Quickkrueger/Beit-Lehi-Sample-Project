@@ -18,11 +18,13 @@ MonoBehaviour:
     - MixedRealityToolkit_Editor_RunOptimalConfig
     - _MixedRealityToolkit_Editor_LockProfiles
     - _MixedRealityToolkit_Editor_AutoEnableUWPCapabilities
-    values: 00010101
+    - MixedRealityToolkit_Editor_NullDataProviders
+    values: 0001010100
   intPreferences:
     keys:
     - _MixedRealityToolkit_Editor_ConfiguratorState
-    values: 64000000
+    - MixedRealityToolkit_Editor_AudioSpatializerCount
+    values: f401000000000000
   floatPreferences:
     keys: []
     values: []
@@ -30,4 +32,4 @@ MonoBehaviour:
     keys:
     - BuildDeployWindow_AppLauncherModelLocation
     values:
-    - 
+    - Assets/Models/ancient_clay_pot.glb
