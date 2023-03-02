@@ -23,5 +23,6 @@ public class CatalogItem : MonoBehaviour
             Destroy(Instancer.activeArtifact);
         }
         Instancer.activeArtifact = Instantiate(artifact, spawnLocation.position, spawnLocation.rotation, parent);
+        Instancer.activeArtifact.transform.parent = spawnLocation;
     }
 }
