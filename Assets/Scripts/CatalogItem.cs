@@ -5,15 +5,15 @@ using UnityEngine;
 public class CatalogItem : MonoBehaviour
 {
 
-    GameObject artifact;
+    ArtifactSO artifact;
     Transform spawnLocation;
-    Transform parent;
+    Transform objectParent;
     // Start is called before the first frame update
-    public void UpdateArtifact(GameObject gameObject, Transform spawnLocation, Transform parent)
+    public void UpdateArtifact(ArtifactSO newArtifact, Transform spawnLocation, Transform parent)
     {
-        artifact = gameObject;
+        artifact = newArtifact;
         this.spawnLocation = spawnLocation;
-        this.parent = parent;
+        this.objectParent = parent;
     }
 
     public void CreateArtifact()
@@ -22,7 +22,8 @@ public class CatalogItem : MonoBehaviour
         {
             Destroy(Instancer.activeArtifact);
         }
-        Instancer.activeArtifact = Instantiate(artifact, spawnLocation.position, spawnLocation.rotation, parent);
-        Instancer.activeArtifact.transform.parent = spawnLocation;
+        Instancer.activeArtifact = Instantiate(artifact.artifactPrefab, spawnLocation.position, spawnLocation.rotation, spawnLocation);
+
+        objectParent.GetComponentInChildren<CatalogList>().SetupSelectedArtifact(artifact.artifactName, artifact.catalogNumber, artifact.siteOfDiscovery, artifact.artifactDescription);
     }
 }
